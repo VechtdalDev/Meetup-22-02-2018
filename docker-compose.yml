@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  nginx:
+    image: bertoost/nginx:symfony
+    restart: always
+    volumes:
+      - ".:/var/www/html:rw"
+    ports:
+      - "12345:80"
+    networks:
+      - default
+
+  php:
+    image: bertoost/php71:fpm-development
+    restart: always
+    environment:
+      BINARY_DIRECTORY: 'bin/'
+    volumes:
+      - './:/var/www/html:rw'
+    networks:
+      - default
