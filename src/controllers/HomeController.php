@@ -16,6 +16,6 @@ class HomeController
      */
     public function index(Application $app)
     {
-        
+        return new JsonResponse([]);
     }
 }
