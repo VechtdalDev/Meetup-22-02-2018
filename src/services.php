@@ -27,9 +27,15 @@ $app->register(new DoctrineOrmServiceProvider, [
             [
                 'type'                         => 'annotation',
                 'namespace'                    => 'Entity',
-                'path'                         => __DIR__ ,
+                'path'                         => __DIR__,
                 'use_simple_annotation_reader' => false,
             ],
         ],
     ],
 ]);
+
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__ . '/Resources/views',
+));
+
+$app->register(new Silex\Provider\SessionServiceProvider());

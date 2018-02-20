@@ -4,3 +4,4 @@
  */
 
 $app->get('/', 'Controller\HomeController::index');
+$app->get('/asset/list', 'Controller\AssetController::list');
