@@ -1,8 +1,10 @@
 <?php
 
 use Silex\Application;
-use Silex\Provider\DoctrineServiceProvider;
 
 $app = new Application();
+
+require_once __DIR__ . '/services.php';
+require_once __DIR__ . '/controllers.php';
 
 return $app;

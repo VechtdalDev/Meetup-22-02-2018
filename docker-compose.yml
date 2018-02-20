@@ -1,4 +1,5 @@
 version: "3.3"
+
 services:
   nginx:
     image: bertoost/nginx:symfony
@@ -15,7 +16,29 @@ services:
     restart: always
     environment:
       BINARY_DIRECTORY: 'bin/'
+      DB_HOST: 'mysql'
+      DB_NAME: 'assets'
+      DB_USER: 'root'
+    links:
+      - mysql:mysql
+    secrets:
+      - DB_PASS
     volumes:
       - './:/var/www/html:rw'
     networks:
       - default
+
+  mysql:
+    image: mariadb:10.3.3
+    restart: always
+    ports:
+      - 43306:3306
+    networks:
+      - default
+    environment:
+      MYSQL_DATABASE: 'assets'
+      MYSQL_ROOT_PASSWORD: 'password'
+
+secrets:
+  DB_PASS:
+    file: 'secrets/db_pass'

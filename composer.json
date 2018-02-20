@@ -5,6 +5,8 @@
         }
     },
     "require": {
-        "silex/silex": "^2.2"
+        "silex/silex": "^2.2",
+        "doctrine/dbal": "~2.2",
+        "dflydev/doctrine-orm-service-provider": "^2.0"
     }
 }
