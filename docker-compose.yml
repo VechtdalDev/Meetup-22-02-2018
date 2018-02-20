@@ -14,6 +14,8 @@ services:
   php:
     image: bertoost/php71:fpm-development
     restart: always
+    extra_hosts:
+      XDEBUG_HOST: ${DEV_HOST_IP}
     environment:
       BINARY_DIRECTORY: 'bin/'
       DB_HOST: 'mysql'

@@ -1,4 +1,5 @@
 bin/php
 bin/composer
 /vendor
-/data
+/var/data
+/var/cache

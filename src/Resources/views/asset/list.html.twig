@@ -13,5 +13,40 @@
 {% endblock %}
 
 {% block content %}
-
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Tag</th>
+            <th>Device</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Serial</th>
+            <th>Productnumber</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        {% for asset in assets %}
+            <tr>
+                <td>{{ asset.id }}</td>
+                <td>{{ asset.name }}</td>
+                <td>{{ asset.tag }}</td>
+                <td>{{ asset.device }}</td>
+                <td>{{ asset.brand }}</td>
+                <td>{{ asset.model }}</td>
+                <td>{{ asset.type }}</td>
+                <td>{{ asset.serial }}</td>
+                <td>{{ asset.productNumber }}</td>
+                <td>{{ asset.description }}</td>
+                <td>{{ asset.status.name }}</td>
+                <td>
+                    <a href="">
+                        <li class="fa fa-edit"></li>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

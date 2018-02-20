@@ -21,13 +21,13 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 
 $app->register(new DoctrineOrmServiceProvider, [
-    'orm.proxies_dir' => '/path/to/proxies',
+    'orm.proxies_dir' => __DIR__.'/../var/cache/doctrine/proxies',
     'orm.em.options'  => [
         'mappings' => [
             [
                 'type'                         => 'annotation',
                 'namespace'                    => 'Entity',
-                'path'                         => __DIR__,
+                'path'                         => __DIR__.'/Entity',
                 'use_simple_annotation_reader' => false,
             ],
         ],

@@ -326,7 +326,7 @@ class Asset
     /**
      * Set status
      *
-     * @param \stdClass $status
+     * @param Status $status
      *
      * @return Asset
      */
