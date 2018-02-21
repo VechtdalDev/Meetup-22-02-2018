@@ -1,7 +1,7 @@
 {% extends "_layout.html.twig" %}
 
 {% block breadcrumbs %}
-    <li class="breadcrumb-item active">List</li>
+    <li class="breadcrumb-item active">Statuses list</li>
 {% endblock %}
 
 {% block  upper_navigation %}
@@ -17,14 +17,14 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Action</th>
+            <th class="text-right">Action</th>
         </tr>
         {% for status in statuses %}
             <tr>
                 <td>{{ status.id }}</td>
                 <td>{{ status.name }}</td>
-                <td>
-                    <a href="/statuses/edit/{{ status.id }}">
+                <td class="text-right">
+                    <a href="/statuses/edit/{{ status.id }}" class="btn btn-sm btn-primary">
                         <li class="fa fa-edit"></li>
                     </a>
                 </td>

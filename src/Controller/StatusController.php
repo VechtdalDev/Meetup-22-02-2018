@@ -41,13 +41,14 @@ class StatusController
     /**
      * Creates new status
      */
-    public function create(Application $application)
+    public function form(Application $application, $id = null)
     {
-        $status = new Status();
+        /** @var EntityManager $em */
+        $em = $application['orm.em'];
+        $status = ($id) ? $em->getRepository(Status::class)->find($id) : new Status();
 
         $formFactory = $application['form.factory'];
         $form = $formFactory->createBuilder(FormType::class, $status)
-            ->add('id', HiddenType::class)
             ->add('name', TextType::class, ['required' => true])
             ->add('save', SubmitType::class, [
                 'label' => 'Save status',
@@ -59,8 +60,6 @@ class StatusController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $em = $application['orm.em'];
-
             $em->persist($status);
             $em->flush();
 
@@ -68,7 +67,8 @@ class StatusController
         }
 
         return $application['twig']->render('statuses/form.html.twig', [
-            'form' => $form->createView(),
+            'form'   => $form->createView(),
+            'status' => $status,
         ]);
     }
 }
