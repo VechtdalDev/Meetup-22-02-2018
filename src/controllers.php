@@ -9,3 +9,5 @@ $app->get('/asset/toevoegen', 'Controller\AssetController::toevoegen');
 $app->get('/asset/bewerk/{id}', 'Controller\AssetController::bewerk');
 $app->post('/asset/toevoegen', 'Controller\AssetController::toevoegen');
 $app->post('/asset/bewerk/{id}', 'Controller\AssetController::bewerk');
+
+$app->get('/statuses', 'Controller\StatusController::index');
