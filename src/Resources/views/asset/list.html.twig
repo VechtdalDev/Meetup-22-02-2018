@@ -6,7 +6,7 @@
 
 {% block  upper_navigation %}
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/asset/toevoegen">
             <i class="fa fa-fw fa-plus"></i>Add asset
         </a>
     </li>
@@ -42,7 +42,7 @@
                 <td>{{ asset.description }}</td>
                 <td>{{ asset.status.name }}</td>
                 <td>
-                    <a href="">
+                    <a href="/asset/bewerk/{{ asset.id }}">
                         <li class="fa fa-edit"></li>
                     </a>
                 </td>
