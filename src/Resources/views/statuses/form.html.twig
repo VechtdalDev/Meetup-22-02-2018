@@ -1,0 +1,20 @@
+{% extends 'statuses/index.html.twig' %}
+
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a href="/statuses">Statuses list</a>
+    </li>
+    <li class="breadcrumb-item active">
+        {% if status.id %}
+            Edit
+        {% else %}
+            Create
+        {% endif %}
+    </li>
+{% endblock %}
+
+{% block content %}
+    {{ form(form) }}
+{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
