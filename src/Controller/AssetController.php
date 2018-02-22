@@ -157,19 +157,21 @@ class AssetController
 
             return $app->redirect('/asset/list');
         } else {
-            $data = [
-                'name'          => $asset->getName(),
-                'tag'           => $asset->getTag(),
-                'device'        => $asset->getDevice(),
-                'brand'         => $asset->getBrand(),
-                'model'         => $asset->getModel(),
-                'type'          => $asset->getType(),
-                'serial'        => $asset->getSerial(),
-                'productNumber' => $asset->getProductNumber(),
-                'description'   => $asset->getDescription(),
-                'status'        => $asset->getStatus()->getId(),
-            ];
-            $formulier->setData($data);
+            if(isset($asset)) {
+                $data = [
+                    'name'          => $asset->getName(),
+                    'tag'           => $asset->getTag(),
+                    'device'        => $asset->getDevice(),
+                    'brand'         => $asset->getBrand(),
+                    'model'         => $asset->getModel(),
+                    'type'          => $asset->getType(),
+                    'serial'        => $asset->getSerial(),
+                    'productNumber' => $asset->getProductNumber(),
+                    'description'   => $asset->getDescription(),
+                    'status'        => $asset->getStatus()->getId(),
+                ];
+                $formulier->setData($data);
+            }
         }
 
         return $formulier->createView();
